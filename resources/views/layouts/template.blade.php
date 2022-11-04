@@ -28,6 +28,8 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('tema/css/style.css')}}" rel="stylesheet">
 
+  @yield('extracss')
+
   <!-- =======================================================
   * Template Name: FlexStart - v1.11.1
   * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
@@ -157,6 +159,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('tema/js/main.js')}}"></script>
+
+  @yield('extrajs')
 
 </body>
 
