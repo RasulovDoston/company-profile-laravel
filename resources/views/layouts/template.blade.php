@@ -58,7 +58,12 @@
           <li><a href="{{url('/berita')}}">Berita</a></li>
           <li><a href="{{url('/pengumuman')}}">Pengumuman</a></li>
           <li><a class="nav-link scrollto" href="{{url('/')}}#contact">Contact</a></li>
+          @if(Auth::check())
+          <li><a class="nav-link scrollto" href="{{url('/dashboard')}}">Dashboard</a></li>
+          <li><a class="getstarted scrollto" href="{{url('/logout')}}" style="background-color: red; !important">Logout</a></li>
+          @else
           <li><a class="getstarted scrollto" href="{{url('/login')}}">Login</a></li>
+          @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

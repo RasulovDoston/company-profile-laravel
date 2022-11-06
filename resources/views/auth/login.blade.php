@@ -22,9 +22,11 @@ Login
 
     <div class="flash-massage">
         @foreach(['danger', 'warning', 'success', 'info'] as $msg)
-        <p class="alert aler-{{$msg}}">
-            {{ Session::get('alert-'.$msg)}} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        </p>
+          @if(Session::has('alert-'.$msg))
+            <p class="alert aler-{{$msg}}">
+                {{ Session::get('alert-'.$msg)}} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </p>
+          @endif  
         @endforeach
     </div>
 
@@ -32,7 +34,7 @@ Login
     <div class="alert alert-danger">
         <ul>
             @foreach($errors->all() as $error)
-            <li>{{error}}</li>
+            <li>{{$error}}</li>
             @endforeach
         </ul>
     </div>
@@ -44,7 +46,8 @@ Login
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
+        <form method="post" action="{{url('/login')}}">
+          @csrf
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" name="email" id="email" class="form-control form-control-lg" required />
