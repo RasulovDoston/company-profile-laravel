@@ -20,25 +20,7 @@ Login
 <section class="vh-80 mt-4">
   <div class="container py-5 h-100">
 
-    <div class="flash-massage">
-        @foreach(['danger', 'warning', 'success', 'info'] as $msg)
-          @if(Session::has('alert-'.$msg))
-            <p class="alert aler-{{$msg}}">
-                {{ Session::get('alert-'.$msg)}} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            </p>
-          @endif  
-        @endforeach
-    </div>
-
-    @if(count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    @include('errors.messages')
 
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
